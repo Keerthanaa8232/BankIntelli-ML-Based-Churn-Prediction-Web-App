@@ -7,6 +7,7 @@ The resulting predictive model effectively classifies customers as likely to chu
 
 ### 📂 Directory Structure
 Bank-Customer-Churn-Prediction/
+```
 │
 ├── app.py                     # Flask application for deployment
 ├── bank.csv                   # Dataset (Bank Marketing data)
@@ -22,7 +23,7 @@ Bank-Customer-Churn-Prediction/
 │   ├── index.html              # Main prediction form (user input + results)
 │   ├── home.html               # Homepage describing the project
 │   └── about.html              
-
+```
 
 ### 📊 Exploratory Data Analysis (EDA)
 
