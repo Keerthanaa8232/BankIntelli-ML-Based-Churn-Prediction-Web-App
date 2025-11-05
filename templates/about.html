@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | FinSure Bank</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Quicksand', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #f8eaff, #e5f3ff, #fff3e6);
+      animation: fadeLoad 1s ease;
+      color: #3a3a3a;
+    }
+
+    @keyframes fadeLoad { from { opacity: 0; } to { opacity: 1; } }
+
+    /* NAVBAR */
+    header {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(12px);
+      padding: 18px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+      z-index: 10;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 700;
+      color: #5a2ca0;
+    }
+
+    nav a {
+      margin-left: 22px;
+      text-decoration: none;
+      color: #3a3a3a;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #5a2ca0;
+      transform: translateY(-3px);
+    }
+
+    .header-box {
+      text-align: center;
+      padding: 90px 20px 60px;
+    }
+
+    .header-box h2 {
+      font-size: 40px;
+      color: #4b009d;
+      font-weight: 700;
+    }
+
+    .header-box p {
+      max-width: 720px;
+      margin: 18px auto 0;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    .section {
+      max-width: 950px;
+      margin: 60px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .section h3 {
+      font-size: 30px;
+      font-weight: 700;
+      color: #4b009d;
+      margin-bottom: 18px;
+    }
+
+    /* Feature Boxes */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .info-box {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 8px 28px rgba(80, 50, 130, 0.18);
+      transition: 0.35s ease;
+      text-align: center;
+    }
+
+    .info-box:hover {
+      transform: translateY(-7px) scale(1.04);
+      box-shadow: 0 14px 42px rgba(80, 50, 130, 0.28);
+    }
+
+    .info-box h4 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #5a2ca0;
+      margin-bottom: 8px;
+    }
+
+    /* Team Cards */
+    .team {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .member {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      padding: 25px;
+      width: 260px;
+      border-radius: 14px;
+      box-shadow: 0 8px 28px rgba(80, 50, 130, 0.18);
+      text-align: center;
+      transition: 0.35s ease;
+    }
+
+    .member:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 14px 36px rgba(80, 50, 130, 0.25);
+    }
+
+    
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 12px;
+      background: linear-gradient(45deg, #8d3cff, #ff69b4);
+      color: white;
+      font-weight: 700;
+      display: block;
+      width: max-content;
+      margin: 40px auto;
+      text-decoration: none;
+      transition: 0.35s;
+    }
+
+    .btn:hover {
+      transform: translateY(-6px) scale(1.03);
+    }
+
+    footer {
+      text-align: center;
+      padding: 26px;
+      background: rgba(255, 255, 255, 0.5);
+      margin-top: 80px;
+      font-size: 14px;
+      color: #444;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>FinSure Bank</h1>
+  <nav>
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+    <a href="/prediction">Prediction</a>
+  </nav>
+</header>
+
+<div class="header-box">
+  <h2>About FinSure Bank</h2>
+  <p>FinSure is a modern banking insights platform that empowers financial institutions using intelligent predictive analytics, secure services, and customer-first solutions.</p>
+</div>
+
+<div class="section">
+  <h3>What Makes Us Unique</h3>
+
+  <div class="info-grid">
+
+    <div class="info-box">
+      <h4>🏦 Modern Banking Vision</h4>
+      <p>We combine finance and automation for seamless digital banking.</p>
+    </div>
+
+    <div class="info-box">
+      <h4>📊 AI-Driven Customer Insights</h4>
+      <p>Predict churn and improve customer loyalty effectively.</p>
+    </div>
+
+    <div class="info-box">
+      <h4>⚙️ Secure & Reliable Systems</h4>
+      <p>Strong security controls protect your financial data.</p>
+    </div>
+
+    <div class="info-box">
+      <h4>💗 People Over Profits</h4>
+      <p>We design banking experiences with care & trust.</p>
+    </div>
+
+    <!-- ✅ NEW TWO CARDS ADDED -->
+    <div class="info-box">
+      <h4>🚀 Future Ready Innovation</h4>
+      <p>We build scalable solutions aligned with next-gen technology trends.</p>
+    </div>
+
+    <div class="info-box">
+      <h4>🎯 Optimized Decision Support</h4>
+      <p>Helps banks take smarter actions to retain valuable customers.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <h3>Meet The Team</h3>
+  <div class="team">
+    <div class="member">
+      <h4>Project Lead</h4>
+      <p>Data Analytics & ML</p>
+    </div>
+
+    <div class="member">
+      <h4>UI/UX Developer</h4>
+      <p>Frontend & Design</p>
+    </div>
+
+    <div class="member">
+      <h4>Backend Developer</h4>
+      <p>Model Integration & API</p>
+    </div>
+  </div>
+</div>
+
+<a href="/prediction" class="btn">Try Prediction</a>
+
+<footer>
+  © 2025 FinSure Bank • Chennai, India • All Rights Reserved.
+</footer>
+
+</body>
+</html>

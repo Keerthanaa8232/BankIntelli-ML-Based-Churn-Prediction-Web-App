@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bank Customer Churn Prediction</title>
+  <style>
+    :root{
+      --bg:#f4f7fb; --card:#ffffff; --accent:#0b6efd; --muted:#6b7280;
+      --success:#16a34a; --danger:#dc2626;
+    }
+    body{background:var(--bg); font-family:Inter,system-ui,Segoe UI,Roboto, Arial; margin:0; padding:28px;}
+    .wrap{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:start;}
+    .card{background:var(--card); padding:20px;border-radius:12px;box-shadow:0 8px 30px rgba(11,34,71,0.06);}
+    header h1{margin:0;font-size:20px;}
+    header p{margin:8px 0 0;color:var(--muted);font-size:14px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{display:block;font-size:13px;color:#374151;margin-bottom:6px;font-weight:600}
+    input[type="number"], select {width:100%; padding:8px 10px; border-radius:8px; border:1px solid #d1d5db; font-size:14px}
+    .full{grid-column:1 / -1}
+    .btn {background:var(--accent); color:#fff; border:none; padding:10px 12px; border-radius:8px; cursor:pointer; font-weight:700}
+    .btn.secondary{background:#eef2ff;color:var(--accent); border:1px solid #dbeafe}
+    .small{font-size:13px;color:var(--muted)}
+    .side {position:sticky; top:28px;}
+    .result {padding:12px;border-radius:8px;margin-top:12px;background:#f8fafc;border:1px solid #e6eefc;text-align:center;font-weight:700}
+    .result.success{color:var(--success);border-color:rgba(16,185,129,0.12);background:rgba(16,185,129,0.06)}
+    .result.danger{color:var(--danger);border-color:rgba(220,38,38,0.12);background:rgba(220,38,38,0.06)}
+    .examples{display:flex;gap:8px;margin-top:10px}
+    .examples button{flex:1}
+    footer{margin-top:14px;font-size:13px;color:var(--muted)}
+    .meta-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px}
+    .hint{font-size:12px;color:#475569;background:#f1f5f9;padding:6px 8px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Main form -->
+    <div class="card">
+      <header>
+        <h1>Bank Customer Churn Prediction</h1>
+        <p>Fill customer details (all fields matter). Click <strong>Predict</strong> to check if the customer is likely to churn.</p>
+      
+
+    </header>
+
+      <form action="/predict" method="post" id="predictForm">
+        <div class="form-grid" style="margin-top:14px">
+          <div>
+            <label>Age</label>
+            <input type="number" name="age" id="age" value="32" style="width: 92%;" required>
+          </div>
+
+          <div>
+            <label>Job</label>
+            <select name="job" id="job">
+              <option>admin.</option><option>technician</option><option>services</option><option>management</option>
+              <option>retired</option><option>unemployed</option><option>blue-collar</option><option>housemaid</option>
+              <option>self-employed</option><option>student</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Marital</label>
+            <select name="marital" id="marital">
+              <option>single</option><option>married</option><option>divorced</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Education</label>
+            <select name="education" id="education">
+              <option>primary</option><option>secondary</option><option>tertiary</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Default</label>
+            <select name="default" id="default">
+              <option>no</option><option>yes</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Balance</label>
+            <input type="number" name="balance" id="balance" value="2500">
+          </div>
+
+          <div>
+            <label>Housing Loan</label>
+            <select name="housing" id="housing">
+              <option>no</option><option>yes</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Personal Loan</label>
+            <select name="loan" id="loan">
+              <option>no</option><option>yes</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Contact</label>
+            <select name="contact" id="contact">
+              <option>cellular</option><option>telephone</option><option>unknown</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Day of month</label>
+            <input type="number" name="day" id="day" value="14" min="1" max="31">
+          </div>
+
+          <div>
+            <label>Month</label>
+            <select name="month" id="month">
+              <option>jan</option><option>feb</option><option>mar</option><option>apr</option><option>may</option><option>jun</option>
+              <option>jul</option><option>aug</option><option>sep</option><option>oct</option><option>nov</option><option>dec</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Duration (sec)</label>
+            <input type="number" name="duration" id="duration" value="320">
+          </div>
+
+          <div>
+            <label>Campaign (calls)</label>
+            <input type="number" name="campaign" id="campaign" value="1">
+          </div>
+
+          <div>
+            <label>Pdays</label>
+            <input type="number" name="pdays" id="pdays" value="1">
+          </div>
+
+          <div>
+            <label>Previous</label>
+            <input type="number" name="previous" id="previous" value="0">
+          </div>
+
+          <div class="full">
+            <label>poutcome</label>
+            <select name="poutcome" id="poutcome">
+              <option>unknown</option><option>failure</option><option>other</option><option>success</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <button type="submit" class="btn">Predict</button>
+          <button type="button" class="btn secondary" onclick="fillNotChurn()">Fill: Not Churn</button>
+          <button type="button" class="btn secondary" onclick="fillChurn()">Fill: Churn</button>
+        </div>
+
+        <div style="margin-top:10px">
+          <div class="small">Tip: Use the example buttons to auto-fill values used in demo.</div>
+          <div class="meta-row">
+            <div class="hint">Important: all dropdowns match training labels — no spelling mistakes.</div>
+            <div class="hint">Model: XGBoost on bank dataset</div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Right column: result + explanation -->
+    <div class="side">
+      <div class="card">
+        <h3 style="margin:0 0 8px 0">Prediction</h3>
+
+        {% if prediction %}
+          <div id="resultBox" class="result {{ 'success' if 'NOT likely' in prediction else 'danger' }}">
+            {{ prediction }}
+          </div>
+        {% else %}
+          <div class="small">No prediction yet — fill the form and click <strong>Predict</strong>.</div>
+        {% endif %}
+
+        <hr style="margin:14px 0;border:none;border-top:1px solid #eef2f7">
+<a href="/home" class="btn secondary" style="float:right;margin-bottom:10px;">← Back to Home</a>
+        <h4 style="margin:0 0 8px 0">Quick explanation</h4>
+        <p class="small" style="line-height:1.5">
+          The model uses customer attributes (age, balance, loans, previous campaign outcome, call duration etc.) to predict churn.
+          High balance and long call duration typically indicate lower churn risk; failed previous campaigns, loans, and low balance increase churn risk.
+        </p>
+
+        <hr style="margin:14px 0;border:none;border-top:1px solid #eef2f7">
+
+        <h4 style="margin:0 0 8px 0">How to interpret</h4>
+        <ul style="padding-left:18px;margin:0;color:var(--muted);font-size:14px;line-height:1.6">
+          <li>✅ <strong>Not likely to CHURN</strong> — customer likely to stay.</li>
+          <li>⚠️ <strong>Likely to CHURN</strong> — consider retention action (offers / call-back).</li>
+        </ul>
+            
+        <footer>
+          <div style="margin-top:10px" class="small">Project: Bank Customer Churn Prediction • Model: XGBoost • Data: bank.csv</div>
+        </footer>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Predefined example values (match training labels)
+    function fillNotChurn(){
+      document.getElementById('age').value = 32;
+      document.getElementById('job').value = 'admin.';
+      document.getElementById('marital').value = 'married';
+      document.getElementById('education').value = 'tertiary';
+      document.getElementById('default').value = 'no';
+      document.getElementById('balance').value = 2500;
+      document.getElementById('housing').value = 'no';
+      document.getElementById('loan').value = 'no';
+      document.getElementById('contact').value = 'cellular';
+      document.getElementById('day').value = 14;
+      document.getElementById('month').value = 'may';
+      document.getElementById('duration').value = 320;
+      document.getElementById('campaign').value = 1;
+      document.getElementById('pdays').value = 999;
+      document.getElementById('previous').value = 0;
+      document.getElementById('poutcome').value = 'unknown';
+    }
+
+    function fillChurn(){
+      document.getElementById('age').value = 54;
+      document.getElementById('job').value = 'blue-collar';
+      document.getElementById('marital').value = 'single';
+      document.getElementById('education').value = 'primary';
+      document.getElementById('default').value = 'no';
+      document.getElementById('balance').value = -200;
+      document.getElementById('housing').value = 'yes';
+      document.getElementById('loan').value = 'yes';
+      document.getElementById('contact').value = 'telephone';
+      document.getElementById('day').value = 20;
+      document.getElementById('month').value = 'jul';
+      document.getElementById('duration').value = 45;
+      document.getElementById('campaign').value = 3;
+      document.getElementById('pdays').value = 10;
+      document.getElementById('previous').value = 1;
+      document.getElementById('poutcome').value = 'failure';
+    }
+  </script>
+</body>
+</html>
