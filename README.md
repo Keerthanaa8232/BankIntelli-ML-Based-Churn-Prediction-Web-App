@@ -37,7 +37,7 @@ step 1 :
        5. Univariate Analysis
            (a) Distribution of Target Variable — deposit
                A bar chart of deposit decisions showed:
-               Slightly more customers said “no” than “yes.”
+               Slightly more customers said “no” than “yes.” 
 
            (b) Age Distribution by Deposit Status
                Customers aged 30–45 years were more likely to subscribe to a term deposit.
