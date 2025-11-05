@@ -119,6 +119,11 @@ Result is displayed on the same page:
 
 - ⚠️ Customer is likely to CHURN → may not subscribe
 
+  ### 📊 Visual Outputs
+<img src="./home_page.jpeg" alt="HOME PAGE" width="500"/>
+<img src="not_likely_to_churn.jpeg" alt="PREDICTION - NOT LIKELY TO CHURN" width="500"/>
+<img src="likely.jpeg" alt="PREDICTION -LIKELY TO CHURN" width="500"/>
+
 
 ### Future Enhancements
 
@@ -132,7 +137,7 @@ Result is displayed on the same page:
 ### 👩‍💻 Contact:
 
 Keerthanaa S - skeerthanaa2004@gmail.com
-
+🔗 LinkedIn(www.linkedin.com/in/keerthanaa-s-a3a99328b)
 
 
 
